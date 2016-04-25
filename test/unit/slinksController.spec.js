@@ -4,10 +4,10 @@ describe('slinksController', function() {
   var ctrl;
 
   beforeEach(inject(function($controller) {
-    ctrl = $contoller('slinksController');
+    ctrl = $controller('SlinksController');
   }));
 
   it('initializes with an empty array', function() {
-    expect(ctrl.links).toEqual([]);
+    expect(ctrl.slinks).toEqual(["bleh"]);
   });
 });
