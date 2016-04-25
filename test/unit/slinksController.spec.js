@@ -8,6 +8,6 @@ describe('slinksController', function() {
   }));
 
   it('initializes with an empty array', function() {
-    expect(ctrl.slinks).toEqual(["bleh"]);
+    expect(ctrl.slinks).toEqual([]);
   });
 });

@@ -3,6 +3,6 @@ angular
   .controller('SlinksController', [function() {
     var self = this;
 
-    self.slinks = ["bleh"];
+    self.slinks = [];
 
   }])
