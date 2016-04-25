@@ -3,11 +3,14 @@ describe('slinksController', function() {
 
   var ctrl;
 
-  beforeEach(inject(function($controller) {
+  beforeEach(inject(function($controller, _SlinkFactory_) {
     ctrl = $controller('SlinksController');
+    SlinkFactory = _SlinkFactory_;
   }));
 
-  it('initializes with an empty array', function() {
-    expect(ctrl.slinks).toEqual([]);
+  it('has a list of links', function() {
+    var slink = new SlinkFactory('https://slack.com/');
+    expect(ctrl.slinks).toEqual([slink]);
   });
+
 });
