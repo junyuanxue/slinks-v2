@@ -1,8 +1,7 @@
 {
   "name": "slinks",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,5 +18,12 @@
   "devDependencies": {
     "bower": "^1.7.9",
     "jasmine-spec-reporter": "^2.4.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "description": "",
+  "dependencies": {
+    "express": "^4.13.4"
   }
 }
