@@ -1,0 +1,23 @@
+{
+  "name": "slinks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/junyuanxue/slinks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/junyuanxue/slinks/issues"
+  },
+  "homepage": "https://github.com/junyuanxue/slinks#readme",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "jasmine-spec-reporter": "^2.4.0"
+  }
+}
