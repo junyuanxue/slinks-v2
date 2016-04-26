@@ -4,15 +4,18 @@ angular
 
     var self = this;
 
-    var KEY_ARRAY = ["previous", "previous_2", "next", "next_2"]
+    var token = "xoxp-37515316146-37503744423-37518852981-304a258fda"
+
+    var KEY_ARRAY = ["text", "previous", "previous_2", "next", "next_2"]
 
     self.getSlinks = function() {
-      return $http.get('https://slack.com/api/search.messages?' + token + '&query=http:\/\/&pretty=1')
-        .then(_getArrayOfLinks)       
+      return $http.get('https://slack.com/api/search.messages?token=' + token + '&query=http:\/\/&pretty=1')
+        .then(_getArrayOfLinks)   
+        	.then()    
     }
 
     function _getArrayOfLinks(response){
-
+    	console.log(response)
       return response.data.messages.matches.map(lookAtNestedObjects)
     
       function lookAtNestedObjects(message){
@@ -48,13 +51,14 @@ angular
           }
         }
 
-        function saveOnlyLinkAddress(linkText){
-          return linkText.match(/<.+>/)[0].slice(1,-1)
-        }
+        
       }
 
 
 
     }
+    function saveOnlyLinkAddress(linkText){
+          return linkText.match(/<.+>/)[0].slice(1,-1)
+        }
 
   }]);
