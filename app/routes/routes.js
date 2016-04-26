@@ -1,5 +1,4 @@
-var express = require('express');
-var app = express();
+module.exports = function(app) {
 
   app.get('/', function (req, res) {
     res.send('Hello World!');
@@ -9,6 +8,4 @@ var app = express();
     res.send('Testing another route...');
   });
 
-  app.listen(3000, function () {
-    console.log('Example app listening on port 3000!');
-  });
+};
