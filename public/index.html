@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="slinksApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/slinksController.js"></script>
+    <title>Slinks</title>
+  </head>
+  <body>
+    <div ng-controller="SlinksController as ctrl">
+      <ul ng-repeat='link in ctrl.slinks'>
+        <li>
+          {{ link }}
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
