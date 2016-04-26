@@ -1,8 +1,8 @@
 angular
   .module('slinksApp')
-  .controller('SlinksController', ['SlinkFactory', function(SlinkFactory) {
+  .controller('SlinksController', [function() {
     var self = this;
 
-    self.slinks = [new SlinkFactory('https://slack.com/')];
+    self.slinks = [];
 
   }])

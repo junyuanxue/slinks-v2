@@ -1,8 +1,7 @@
 {
   "name": "slinks",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,7 +17,14 @@
   "homepage": "https://github.com/junyuanxue/slinks#readme",
   "devDependencies": {
     "angular-mocks": "^1.5.5",
-    "bower": "^1.7.9",
+    "bower": "^1.7.9"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "description": "",
+  "dependencies": {
+    "express": "^4.13.4",
     "jasmine-core": "^2.4.1",
     "jasmine-spec-reporter": "^2.4.0",
     "karma": "^0.13.22",
