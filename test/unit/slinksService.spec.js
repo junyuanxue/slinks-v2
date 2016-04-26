@@ -7,7 +7,7 @@ describe('SlinksService', function() {
     messages: {
       matches: [
         {
-          text: "<http://slack.com/>",
+          text: "<https://slack.com/>",
           previous: {
             text: "<http://expressjs.com/>"
           },
@@ -32,11 +32,9 @@ describe('SlinksService', function() {
   }));
 
   it('fetches a list of links from Slack API', function() {
-    var token = " ";
+    httpBackend.expectGET("/slinks").respond(slinksData);
 
-    httpBackend.expectGET("https://slack.com/api/search.messages?token=" + token + "&query=http:\/\/&pretty=1").respond(slinksData);
-
-    var slink1 = new SlinkFactory("http://slack.com/");
+    var slink1 = new SlinkFactory("https://slack.com/");
     var slink2 = new SlinkFactory("http://expressjs.com/");
     var slink3 = new SlinkFactory("https://mochajs.org/");
     var slink4 = new SlinkFactory("https://www.mongodb.org/");

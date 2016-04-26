@@ -7,7 +7,7 @@ describe('slinksController', function() {
     messages: {
       matches: [
         {
-          text: "<http://slack.com/>",
+          text: "<https://slack.com/>",
           previous: {
             text: "<http://expressjs.com/>"
           },
@@ -25,21 +25,19 @@ describe('slinksController', function() {
     }
   };
 
-  var token = " ";
-
   beforeEach(inject(function($controller, _SlinkFactory_, $httpBackend, _SlinksService_) {
     ctrl = $controller('SlinksController');
     SlinkFactory = _SlinkFactory_;
     httpBackend = $httpBackend;
     SlinksService = _SlinksService_;
 
-    httpBackend.expectGET("https://slack.com/api/search.messages?token=" + token + "&query=http:\/\/&pretty=1").respond(slinksData);
+    httpBackend.expectGET("/slinks").respond(slinksData);
     httpBackend.flush();
   }));
 
   it('fetches a list of links from Slack API', function() {
 
-    var slink1 = new SlinkFactory("http://slack.com/");
+    var slink1 = new SlinkFactory("https://slack.com/");
     var slink2 = new SlinkFactory("http://expressjs.com/");
     var slink3 = new SlinkFactory("https://mochajs.org/");
     var slink4 = new SlinkFactory("https://www.mongodb.org/");
