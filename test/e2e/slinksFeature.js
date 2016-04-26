@@ -5,7 +5,7 @@ describe('Slinks', function() {
 
   mock([{
     request: {
-      path: 'https://slack.com/api/search.messages?token=" + token + "&query=http:\/\/&pretty=1',
+      path: '/slinks',
       method: 'GET'
     },
 

@@ -4,5 +4,8 @@ angular
 
     var self = this;
 
-
+    self.getSlinks = function() {
+      return $http.get('/slinks');
+    }
+    
   }]);

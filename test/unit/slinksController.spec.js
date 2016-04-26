@@ -25,15 +25,13 @@ describe('slinksController', function() {
     }
   };
 
-  var token = ENV['SLACK_API_TOKEN'];
-
   beforeEach(inject(function($controller, _SlinkFactory_, $httpBackend, _SlinksService_) {
     ctrl = $controller('SlinksController');
     SlinkFactory = _SlinkFactory_;
     httpBackend = $httpBackend;
     SlinksService = _SlinksService_;
 
-    httpBackend.expectGet("https://slack.com/api/search.messages?token=" + token + "&query=http:\/\/&pretty=1").respond(slinksData);
+    httpBackend.expectGET('/slinks').respond(slinksData);
     httpBackend.flush();
   }));
 

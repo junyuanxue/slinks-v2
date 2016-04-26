@@ -32,9 +32,11 @@ describe('SlinksService', function() {
   }));
 
   it('fetches a list of links from Slack API', function() {
-    var token = ENV['SLACK_API_TOKEN'];
+    // var token = process.env.SLACK_API_TOKEN;
 
-    httpBackend.expectGet("https://slack.com/api/search.messages?token=" + token + "&query=http:\/\/&pretty=1").respond(slinksData);
+    // httpBackend.expectGET("https://slack.com/api/search.messages?token=" + token + "&query=http:\/\/&pretty=1").respond(slinksData);
+    
+    httpBackend.expectGET('/slinks').respond(slinksData);
 
     var slink1 = new SlinkFactory("http://slack.com/");
     var slink2 = new SlinkFactory("http://expressjs.com/");
