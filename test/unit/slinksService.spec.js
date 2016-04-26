@@ -21,16 +21,28 @@ describe('SlinksService', function() {
         }
       }
     ]
-  }
+  };
 
-  beforeEach(inject(function(_SlinksService_, $httpBackend) {
+  beforeEach(inject(function(_SlinksService_, _SlinkFactory_, $httpBackend) {
+    SlinkFactory = _SlinkFactory_;
     SlinksService = _SlinksService_;
     httpBackend = $httpBackend;
   }));
 
   it('fetches a list of links from Slack API', function() {
     var token = ENV['SLACK_API_TOKEN'];
-    httpBackend.expectGet("https://slack.com/api/search.messages?token=" + token + "&query=http:\/\/&pretty=1");
-  });
 
+    httpBackend.expectGet("https://slack.com/api/search.messages?token=" + token + "&query=http:\/\/&pretty=1").respond(slinksData);
+
+    var slink1 = new SlinkFactory("http://slack.com/");
+    var slink2 = new SlinkFactory("http://expressjs.com/");
+    var slink3 = new SlinkFactory("https://mochajs.org/");
+    var slink4 = new SlinkFactory("https://www.mongodb.org/");
+
+    SlinksService.getSlinks().then(function(slinks) {
+      expect(slinks).toEqual([slink1, slink2, slink3, slink4]);
+    })
+
+    httpBackend.flush();
+  });
 });

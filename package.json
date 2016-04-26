@@ -17,7 +17,9 @@
   "homepage": "https://github.com/junyuanxue/slinks#readme",
   "devDependencies": {
     "angular-mocks": "^1.5.5",
-    "bower": "^1.7.9"
+    "bower": "^1.7.9",
+    "grunt": "^1.0.1",
+    "grunt-ng-constant": "^2.0.1"
   },
   "directories": {
     "test": "test"
