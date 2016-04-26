@@ -9,20 +9,11 @@ module.exports = function(app) {
   });
 
   app.get('/slinks', function(req, res) {
-
-    return requestToSlack();
-
-    // https.request("https://slack.com/api/search.messages?token=" + token + "&query=http:\/\/&pretty=1").on('response', function(response) {
-    //   response.on('data', function(data) {
-    //     console.log(data);
-    //   });
-    //
-    //   response.on('end', function() {
-    //     callback(console.log(data));
-    //   });
-    // }).end();
-
-
+    requestToSlack().then(function(slinksData) {
+      return res.send(slinksData);
+    }).catch(function(error) {
+      return res.send(error);
+    });
   });
 
   function requestToSlack() {
@@ -33,12 +24,14 @@ module.exports = function(app) {
       }
     };
 
-    request(options, function(error, response, body) {
-      if (error) return reject(error);
-      if (response.statusCode !== 200) return reject(new Error(body));
-      if (!error && response.statusCode === 200) {
-        var slinksData = JSON.parse(body);
-      }
-    })
-  }
+    return new Promise(function(resolve, reject) {
+      request(options, function(error, response, body) {
+        if (error) return reject(error);
+        if (response.statusCode !== 200) return reject(new Error(body));
+        if (!error && response.statusCode === 200) {
+          resolve(JSON.parse(body));
+        }
+      });
+    });
+  };
 };

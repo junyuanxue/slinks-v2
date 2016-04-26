@@ -1,15 +1,12 @@
 angular
   .module('slinksApp')
-  .service('SlinksService', ['$http', 'SlinkFactory', function($http, SlinkFactory) {
+  .service('SlinksService', ['$http', 'SlinkFactory', '$q', function($http, SlinkFactory, $q) {
 
     var self = this;
-
-    var token = " ";
 
     var KEY_ARRAY = ["text", "previous", "previous_2", "next", "next_2"];
 
     self.getSlinks = function() {
-      console.log($http.get('/slinks'))
       return $http.get('/slinks').then(_getArrayOfLinks);
     }
 
