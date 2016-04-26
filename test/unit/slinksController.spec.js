@@ -4,23 +4,25 @@ describe('slinksController', function() {
   var ctrl, SlinkFactory, httpBackend, SlinksService;
 
   var slinksData = {
-    matches: [
-      {
-        text: "<http://slack.com/>",
-        previous: {
-          text: "<http://expressjs.com/>"
-        },
-        previous_2: {
-          text: "<https://mochajs.org/>"
-        },
-        next: {
-          text: "This is not a link!"
-        },
-        next_2: {
-          text: "<https://www.mongodb.org/>"
+    messages: {
+      matches: [
+        {
+          text: "<http://slack.com/>",
+          previous: {
+            text: "<http://expressjs.com/>"
+          },
+          previous_2: {
+            text: "<https://mochajs.org/>"
+          },
+          next: {
+            text: "This is not a link!"
+          },
+          next_2: {
+            text: "<https://www.mongodb.org/>"
+          }
         }
-      }
-    ]
+      ]
+    }
   };
 
   var token = ENV['SLACK_API_TOKEN'];

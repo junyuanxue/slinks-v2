@@ -4,23 +4,25 @@ describe('SlinksService', function() {
   var SlinksService, httpBackend;
 
   var slinksData = {
-    matches: [
-      {
-        text: "<http://slack.com/>",
-        previous: {
-          text: "<http://expressjs.com/>"
-        },
-        previous_2: {
-          text: "<https://mochajs.org/>"
-        },
-        next: {
-          text: "This is not a link!"
-        },
-        next_2: {
-          text: "<https://www.mongodb.org/>"
+    messages: {
+      matches: [
+        {
+          text: "<http://slack.com/>",
+          previous: {
+            text: "<http://expressjs.com/>"
+          },
+          previous_2: {
+            text: "<https://mochajs.org/>"
+          },
+          next: {
+            text: "This is not a link!"
+          },
+          next_2: {
+            text: "<https://www.mongodb.org/>"
+          }
         }
-      }
-    ]
+      ]
+    }
   };
 
   beforeEach(inject(function(_SlinksService_, _SlinkFactory_, $httpBackend) {
