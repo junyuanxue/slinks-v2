@@ -25,7 +25,7 @@ describe('slinksController', function() {
     }
   };
 
-  var token = "xoxp-37515316146-37503744423-37518852981-304a258fda";
+  var token = " ";
 
   beforeEach(inject(function($controller, _SlinkFactory_, $httpBackend, _SlinksService_) {
     ctrl = $controller('SlinksController');

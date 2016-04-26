@@ -1,7 +1,7 @@
 describe('Slinks', function() {
   var mock = require('protractor-http-mock');
 
-  var token = "xoxp-37515316146-37503744423-37518852981-304a258fda";
+  var token = " ";
 
   mock([{
     request: {

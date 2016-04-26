@@ -32,7 +32,7 @@ describe('SlinksService', function() {
   }));
 
   it('fetches a list of links from Slack API', function() {
-    var token = "xoxp-37515316146-37503744423-37518852981-304a258fda";
+    var token = " ";
 
     httpBackend.expectGET("https://slack.com/api/search.messages?token=" + token + "&query=http:\/\/&pretty=1").respond(slinksData);
 
