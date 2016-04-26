@@ -9,13 +9,9 @@ angular
     var KEY_ARRAY = ["text", "previous", "previous_2", "next", "next_2"];
 
     self.getSlinks = function() {
+      console.log($http.get('/slinks'))
       return $http.get('/slinks').then(_getArrayOfLinks);
     }
-
-    // self.getSlinks = function() {
-    //   return $http.get('https://slack.com/api/search.messages?token=' + token + '&query=http:\/\/&pretty=1')
-    //     .then(_getArrayOfLinks)
-    // }
 
     function _getArrayOfLinks(response){
 

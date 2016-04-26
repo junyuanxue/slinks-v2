@@ -20,7 +20,8 @@
     "bower": "^1.7.9",
     "grunt": "^1.0.1",
     "grunt-ng-constant": "^2.0.1",
-    "protractor-http-mock": "^0.6.0"
+    "protractor-http-mock": "^0.6.0",
+    "request": "^2.72.0"
   },
   "directories": {
     "test": "test"

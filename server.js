@@ -2,9 +2,6 @@ var express = require('express');
 var app = express();
 var routes = require('./app/routes.js')(app);
 var path = require('path');
-var http = require('http');
-
-var token = process.env.SLACK_API_TOKEN;
 
 app.use(express.static(path.join(__dirname, '/public')));
 
