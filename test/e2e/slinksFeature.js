@@ -1,11 +1,11 @@
 describe('Slinks', function() {
   var mock = require('protractor-http-mock');
 
-  var token = ENV['SLACK_API_TOKEN'];
+  var token = "xoxp-37515316146-37503744423-37518852981-304a258fda";
 
   mock([{
     request: {
-      path: '/slinks',
+      path: "https://slack.com/api/search.messages?token=" + token + "&query=http:\/\/&pretty=1",
       method: 'GET'
     },
 
@@ -30,7 +30,7 @@ describe('Slinks', function() {
             }
           ]
         }
-      };
+      }
     }
   }]);
 

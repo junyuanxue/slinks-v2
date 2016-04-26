@@ -32,11 +32,9 @@ describe('SlinksService', function() {
   }));
 
   it('fetches a list of links from Slack API', function() {
-    // var token = process.env.SLACK_API_TOKEN;
+    var token = "xoxp-37515316146-37503744423-37518852981-304a258fda";
 
-    // httpBackend.expectGET("https://slack.com/api/search.messages?token=" + token + "&query=http:\/\/&pretty=1").respond(slinksData);
-    
-    httpBackend.expectGET('/slinks').respond(slinksData);
+    httpBackend.expectGET("https://slack.com/api/search.messages?token=" + token + "&query=http:\/\/&pretty=1").respond(slinksData);
 
     var slink1 = new SlinkFactory("http://slack.com/");
     var slink2 = new SlinkFactory("http://expressjs.com/");
@@ -44,7 +42,7 @@ describe('SlinksService', function() {
     var slink4 = new SlinkFactory("https://www.mongodb.org/");
 
     SlinksService.getSlinks().then(function(slinks) {
-      expect(slinks).toEqual([slink1, slink2, slink3, slink4]);
+      expect(slinks).toEqual([[slink1, slink2, slink3, slink4]]);
     })
 
     httpBackend.flush();

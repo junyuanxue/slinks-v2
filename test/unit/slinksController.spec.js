@@ -25,20 +25,17 @@ describe('slinksController', function() {
     }
   };
 
+  var token = "xoxp-37515316146-37503744423-37518852981-304a258fda";
+
   beforeEach(inject(function($controller, _SlinkFactory_, $httpBackend, _SlinksService_) {
     ctrl = $controller('SlinksController');
     SlinkFactory = _SlinkFactory_;
     httpBackend = $httpBackend;
     SlinksService = _SlinksService_;
 
-    httpBackend.expectGET('/slinks').respond(slinksData);
+    httpBackend.expectGET("https://slack.com/api/search.messages?token=" + token + "&query=http:\/\/&pretty=1").respond(slinksData);
     httpBackend.flush();
   }));
-
-  it('has a list of links', function() {
-    var slink = new SlinkFactory('https://slack.com/');
-    expect(ctrl.slinks).toEqual([slink]);
-  });
 
   it('fetches a list of links from Slack API', function() {
 
