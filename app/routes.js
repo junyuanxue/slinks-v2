@@ -6,7 +6,7 @@ module.exports = function(app) {
   });
 
   app.get('/slinks', function(req, res) {
-    // http.get("https://slack.com/api/search.messages?token=" + token + "&query=http:\/\/&pretty=1").then(function(res) {
+    http.get("https://slack.com/api/search.messages?token=" + token + "&query=http:\/\/&pretty=1").then(function(res) {
       console.log(res);
     })
   })
