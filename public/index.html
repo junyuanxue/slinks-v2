@@ -2,18 +2,30 @@
 <html ng-app="slinksApp">
   <head>
     <meta charset="utf-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/controllers/slinksController.js"></script>
-    <title>Slinks</title>
+
+    <title>Slink</title>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script type="text/javascript" src="../app/routes/routes.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/controllers/slinksController.js"></script>
+
+    <!-- Stylesheets & fonts  -->
+    <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="stylesheet/main.css">
   </head>
+
+
   <body>
-    <div ng-controller="SlinksController as ctrl">
+    <h1 id="heading"> TEST TITLE </h1>
+    <div id="practice-text"> Test font </div>
+    <!-- <div ng-controller="SlinksController as ctrl">
       <ul ng-repeat='link in ctrl.slinks'>
         <li>
           {{ link }}
         </li>
       </ul>
-    </div>
+    </div> -->
   </body>
 </html>
