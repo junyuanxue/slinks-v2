@@ -29,7 +29,7 @@ module.exports = function(app) {
         if (error) return reject(error);
         if (response.statusCode !== 200) return reject(new Error(body));
         if (!error && response.statusCode === 200) {
-          resolve(JSON.parse(body));
+          resolve(body);
         }
       });
     });
