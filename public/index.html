@@ -2,14 +2,22 @@
 <html ng-app="slinksApp">
   <head>
     <meta charset="utf-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/controllers/slinksController.js"></script>
-    <script src="js/factories/slinkFactory.js"></script>
-    <script src="js/services/slinksService.js"></script>
 
-    <title>Slinks</title>
+    <title>Slink</title>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script type="text/javascript" src="../app/routes/routes.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/controllers/slinksController.js"></script>
+    <script type="text/javascript" src="js/factories/slinkFactory.js"></script>
+    <script type="text/javascript" src="js/services/slinksService.js"></script>
+
+    <!-- Stylesheets & fonts  -->
+    <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type='text/css' href="stylesheet/main.css">
   </head>
+
   <body>
     <h1>Slinks</h1>
     <div ng-controller="SlinksController as ctrl">
@@ -19,5 +27,6 @@
         </li>
       </ul>
     </div>
+    
   </body>
 </html>
