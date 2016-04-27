@@ -10,19 +10,20 @@ angular
 
     self.getSlinks = function() {  //rename Slinks at this level?
       return $http.get('https://slack.com/api/search.messages?token=' + token + '&query=http:\/\/&pretty=1')
-        .then(_getArrayOfMessageObjects);
-        	.then(_extractObjectsToNestedArray);
+        .then(_getArrayOfSlinkObjects);
     };
     //
-    function _getArrayOfMessageObjects(response){
+    function _getArrayOfSlinkObjects(allMessageData){
       console.log(response.data.messages.matches);
     	// console.log(response.data.messages.matches);
-      // return response.data.messages.matches.map(lookAtNestedObjects);
-      return response.data.messages.matches;
+      return allMessageData.data.messages.matches.map(extractTextFromMatchesIntoNestedArray)
+        .map(flattenArrays)
+          .map(filterForLinks)
+            .map(linkToSlinkObject);
     }
 
-    function _handleObjects(response) {
-      reponse.map(_extractObjectContents);
+    function extractTextFromMatchesIntoNestedArray(matchesObject) {
+      matchesObject.map();
     }
 
     //   function lookAtNestedObjects(message){
