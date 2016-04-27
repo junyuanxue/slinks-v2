@@ -46,11 +46,7 @@ describe('SlinksService', function() {
   //   httpBackend.flush();
   // });
 
-  // it('returns a flattened array of links', function() {
-  //   httpBackend.expectGET("/slinks").respond(slinksData);
-  //   SlinksService.getSlinks().then(function(slinks))
-  //
-  // })
+
 
 
 });

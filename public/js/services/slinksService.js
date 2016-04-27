@@ -17,6 +17,8 @@ angular
       return allMessageData.data.messages.matches.map(extractMessagesFromMatches)
         // .map(flattenArrays)
           .map(filterForLinks);
+          console.log('*******THREE*********')
+          console.log(allMessageData.data.messages.matches.map(extractMessagesFromMatches).map(fil));
         //     .map(linkToSlinkObject);
     }
 
@@ -27,9 +29,9 @@ angular
           nestedArray.push(matchesObject[key].text);
         }
       });
-    console.log('******ONE*******')
-    console.log(nestedArray)
-    return nestedArray;
+      console.log('******ONE*******')
+      console.log(nestedArray)
+      return nestedArray;
     }
 
     function filterForLinks(theArray) {
