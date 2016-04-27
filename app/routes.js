@@ -9,14 +9,14 @@ module.exports = function(app) {
   });
 
   app.get('/slinks', function(req, res) {
-    requestToSlack().then(function(slinksData) {
+    _requestToSlack().then(function(slinksData) {
       return res.send(slinksData);
     }).catch(function(error) {
       return res.send(error);
     });
   });
 
-  function requestToSlack() {
+  function _requestToSlack() {
     var options = {
       url: "https://slack.com/api/search.messages?token=" + token + "&query=http:\/\/&pretty=1",
       headers: {
