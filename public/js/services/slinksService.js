@@ -6,7 +6,7 @@ angular
 
     var token = "xoxp-37515316146-37503744423-37518852981-304a258fda";
 
-    var KEY_ARRAY = ["text", "previous", "previous_2", "next", "next_2"];
+    var KEY_ARRAY = ["previous", "previous_2", "next", "next_2"];
 
     self.getSlinks = function() {  //rename Slinks at this level?
       return $http.get('https://slack.com/api/search.messages?token=' + token + '&query=http:\/\/&pretty=1')
@@ -14,17 +14,32 @@ angular
     };
     //
     function _getArrayOfSlinkObjects(allMessageData){
-      console.log(response.data.messages.matches);
     	// console.log(response.data.messages.matches);
-      return allMessageData.data.messages.matches.map(extractTextFromMatchesIntoNestedArray)
-        .map(flattenArrays)
-          .map(filterForLinks)
-            .map(linkToSlinkObject);
+      return allMessageData.data.messages.matches.map(extractMessagesFromMatchesIntoNestedArray);
+        // .map(flattenArrays)
+        //   .map(filterForLinks)
+        //     .map(linkToSlinkObject);
     }
 
-    function extractTextFromMatchesIntoNestedArray(matchesObject) {
-      matchesObject.map();
+    function extractMessagesFromMatchesIntoNestedArray(matchesObject) {
+      var nestedArray = [matchesObject.text];
+      KEY_ARRAY.forEach(getText);
+      // KEY_ARRAY.forEach(function(key){
+      //   if(matchesObject[key] !== undefined) {
+      //     nestedArray.push(matchesObject[key].text);
+      //   }
+      // });
+      console.log(nestedArray);
+      return nestedArray;
+
+      function getText(key, index) {
+        if(matchesObject[key] !== undefined) {
+          nestedArray.push(matchesObject[key].text);
+        }
+      }
     }
+
+
 
     //   function lookAtNestedObjects(message){
     //     var arrayOfAllLinks = [];
