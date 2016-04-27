@@ -7,7 +7,8 @@ module.exports = function(config){
       'app/bower_components/angular/angular.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
       'public/**/*.js',
-      'test/unit/*.js'
+      'test/unit/*.js',
+      'node_modules/angular-unit-testing-helpers/test-helpers.js'
     ],
 
     autoWatch : true,
