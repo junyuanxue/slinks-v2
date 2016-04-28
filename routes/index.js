@@ -18,8 +18,10 @@ module.exports = function(app) {
   });
 
   app.post('/slinks', function(req,res){
-    console.log(req.body);
-    models.Slink.findOrCreate({ where: { url: req.body.url }, defaults: { starred: false } }); 
+    models.Slink.findOrCreate({ 
+      where: { url: req.body.url }, 
+      defaults: { starred: false } 
+    }); 
   });
 
   app.get('/slinks', function(req, res) {
