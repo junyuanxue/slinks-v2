@@ -45,7 +45,7 @@ describe('Slinks', function() {
 
   it('displays a list of links', function() {
     browser.get('/');
-    var slinks = $$('#slinks li');
+    var slinks = $$('#slinks li a');
 
     expect(slinks.first().getText()).toEqual('https://slack.com/');
     expect(slinks.last().getText()).toEqual('https://www.mongodb.org/');
