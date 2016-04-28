@@ -15,7 +15,7 @@ angular
       return allMessageData.data.messages.matches.map(extractMessagesFromMatches)
         // .map(flattenArrays)
         .map(filterForLinks);
-        //     .map(linkToSlinkObject);
+            // .map(linkToSlinkObject);
     }
 
     function extractMessagesFromMatches(matchesObject) {
@@ -25,17 +25,18 @@ angular
           nestedArray.push(matchesObject[key].text);
         }
       });
-      console.log("******** nestedArray ************");
       return nestedArray;
     }
 
     function filterForLinks(theArray) {
       var justLinks = [];
       theArray.forEach(function(link) {
-        var regexedLink = link.match(/<.+>/)[0].slice(1,-1);
-        justLinks.push(regexedLink);
+        if(link.includes("://")) {
+          var regexedLink = link.match(/<.+>/)[0].slice(1,-1);
+          justLinks.push(regexedLink);
+        }
       });
-      console.log("******** justLinks ************");
+      console.log(justLinks);
       return justLinks;
     }
 
