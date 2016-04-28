@@ -15,7 +15,7 @@
     <div ng-controller="SlinksController as ctrl">
       <ul id="slinks" ng-repeat="slink in ctrl.slinks">
         <li>
-          {{ slink.url }}
+          <a href="{{ slink.url }}">{{ slink.url }}</a>
         </li>
       </ul>
     </div>
