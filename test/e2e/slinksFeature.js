@@ -31,8 +31,9 @@ describe('Slinks', function() {
           }
         }
       }
-    }]);
-  })
+    }
+  ]);
+});
 
   afterEach(function() {
     mock.teardown();
