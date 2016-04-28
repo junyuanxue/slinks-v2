@@ -25,8 +25,12 @@
     "karma-chrome-launcher": "^0.2.3",
     "karma-jasmine": "^0.3.8",
     "karma-spec-reporter": "0.0.26",
+    "pg": "^4.5.5",
+    "pg-hstore": "^2.3.2",
     "protractor-http-mock": "^0.6.0",
-    "request": "^2.72.0"
+    "request": "^2.72.0",
+    "sequelize": "^3.22.0",
+    "sequelize-cli": "^2.4.0"
   },
   "directories": {
     "test": "test"
@@ -41,7 +45,8 @@
     "karma-jasmine": "^0.3.8",
     "karma-requirejs": "^0.2.6",
     "karma-spec-reporter": "0.0.26",
-    "pg": "^4.5.4",
+    "pg": "^4.5.5",
+    "pg-hstore": "^2.3.2",
     "requirejs": "^2.2.0"
   }
 }
