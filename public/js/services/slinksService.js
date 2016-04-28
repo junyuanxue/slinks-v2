@@ -4,7 +4,7 @@ angular
 
     var self = this;
 
-    var token = "xoxp-37515316146-37503744423-37518852981-304a258fda";
+    var token = "xoxp-37515316146-37503744423-37518852981-304a258fda"; //old key
 
     var KEY_ARRAY = ["previous", "previous_2", "next", "next_2"];
 
