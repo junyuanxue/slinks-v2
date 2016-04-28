@@ -14,7 +14,7 @@ angular
     function _getArrayOfSlinkObjects(allMessageData){
       return allMessageData.data.messages.matches.map(extractMessagesFromMatches)
         // .map(flattenArrays)
-          .map(filterForLinks);
+        .map(filterForLinks);
         //     .map(linkToSlinkObject);
     }
 
@@ -25,6 +25,7 @@ angular
           nestedArray.push(matchesObject[key].text);
         }
       });
+      console.log("******** nestedArray ************");
       return nestedArray;
     }
 
@@ -34,6 +35,7 @@ angular
         var regexedLink = link.match(/<.+>/)[0].slice(1,-1);
         justLinks.push(regexedLink);
       });
+      console.log("******** justLinks ************");
       return justLinks;
     }
 
