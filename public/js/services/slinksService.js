@@ -11,7 +11,6 @@ angular
     }
 
     function _getArrayOfLinks(response){
-
       return response.data.messages.matches.map(lookAtNestedObjects)
 
       function lookAtNestedObjects(message){
@@ -53,3 +52,4 @@ angular
       }
     }
   }]);
+

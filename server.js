@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
-var routes = require('./app/routes.js')(app);
+var http = require('http');
+var routes = require('./routes/index.js')(app);
 var path = require('path');
 
 app.use(express.static(path.join(__dirname, '/public')));
