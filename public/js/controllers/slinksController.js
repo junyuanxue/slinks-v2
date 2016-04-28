@@ -9,5 +9,4 @@ angular
     	var slinks = Array.prototype.concat.apply([],slinks);
       self.slinks = slinks;
     });
-
   }]);
