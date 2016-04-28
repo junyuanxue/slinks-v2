@@ -1,7 +1,7 @@
-describe('slinksController', function() {
+describe('SlinksService', function() {
   beforeEach(module('slinksApp'));
 
-  var ctrl, SlinkFactory, httpBackend, SlinksService;
+  var SlinksService, httpBackend;
 
   var slinksData = {
     messages: {
@@ -25,23 +25,24 @@ describe('slinksController', function() {
     }
   };
 
-  beforeEach(inject(function($controller, _SlinkFactory_, $httpBackend, _SlinksService_) {
-    ctrl = $controller('SlinksController');
+  beforeEach(inject(function(_SlinksService_, _SlinkFactory_, $httpBackend) {
     SlinkFactory = _SlinkFactory_;
-    httpBackend = $httpBackend;
     SlinksService = _SlinksService_;
-
-    httpBackend.expectGET("/slinks").respond(slinksData);
-    httpBackend.flush();
+    httpBackend = $httpBackend;
   }));
 
   it('fetches a list of links from Slack API', function() {
+    httpBackend.expectGET("/slinks").respond(slinksData);
 
     var slink1 = new SlinkFactory("https://slack.com/");
     var slink2 = new SlinkFactory("http://expressjs.com/");
     var slink3 = new SlinkFactory("https://mochajs.org/");
     var slink4 = new SlinkFactory("https://www.mongodb.org/");
 
-    expect(ctrl.slinks).toEqual([slink1, slink2, slink3, slink4]);
+    SlinksService.getSlinks().then(function(slinks) {
+      expect(slinks).toEqual([[slink1, slink2, slink3, slink4]]);
+    })
+
+    httpBackend.flush();
   });
 });
