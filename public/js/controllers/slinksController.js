@@ -6,7 +6,7 @@ angular
     self.slinks = [new SlinkFactory('https://slack.com/')];
 
     SlinksService.getSlinks().then(function(slinks) {
-    	var slinks = Array.prototype.concat.apply([],slinks)
+    	var slinks = Array.prototype.concat.apply([],slinks);
       self.slinks = slinks;
       _sendEachSlinkToDB(self.slinks);
     })
@@ -25,4 +25,6 @@ angular
 
       $http(req);
     }
-  }])
+
+  }]);
+
