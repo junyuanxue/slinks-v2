@@ -10,12 +10,14 @@ angular
       return $http.get('/slinks')
         .then(_getArrayOfSlinkObjects);
     };
-    //
+
     function _getArrayOfSlinkObjects(allMessageData){
-      return allMessageData.data.messages.matches.map(extractMessagesFromMatches)
-        // .map(flattenArrays)
-        .map(filterForLinks);
-            // .map(linkToSlinkObject);
+      var results = allMessageData.data.messages.matches.map(extractMessagesFromMatches);
+      //console.log(flattenArrays(results).map(forLinks));
+      return flattenArrays(results)
+        .filter(forLinks)
+          .map(removeLinkTags)
+            .map(linkToSlinkObject);
     }
 
     function extractMessagesFromMatches(matchesObject) {
@@ -28,60 +30,21 @@ angular
       return nestedArray;
     }
 
-    function filterForLinks(theArray) {
-      var justLinks = [];
-      theArray.forEach(function(link) {
-        if(link.includes("://")) {
-          var regexedLink = link.match(/<.+>/)[0].slice(1,-1);
-          justLinks.push(regexedLink);
-        }
-      });
-      console.log(justLinks);
-      return justLinks;
-    }
+    function flattenArrays(multidimensionalArray){
+      return  Array.prototype.concat.apply([], multidimensionalArray);
+    };
 
+    function forLinks(message) {
+      var regexedLink = message.match(/<http.+>/);
+      return (regexedLink !== undefined && regexedLink !== null);
+    };
 
-    //   function lookAtNestedObjects(message){
-    //     var arrayOfAllLinks = [];
-    //     KEY_ARRAY.forEach(checkNeighbourMessageForHttp);
-    //     return arrayOfAllLinks;
-    //
-    //     function checkNeighbourMessageForHttp(text, index){
-    //       if(!!message[text]){
-    //         isALink(text);
-    //       }
-    //       return arrayOfAllLinks;
-    //     }
-    //
-    //     function isALink(item){
-    //       var slink = isNotNested(item) || isNestedHashALink(item);
-    //       if(!!slink){
-    //         arrayOfAllLinks.push(slink);
-    //       }
-    //     }
-    //
-    //     function isNestedHashALink(linkObject){
-    //       if(message[linkObject].text.includes("http")){
-    //         var link = saveOnlyLinkAddress(message[linkObject].text);
-    //         return (new SlinkFactory(link));
-    //       }
-    //     }
-    //
-    //     function isNotNested(linkObject){
-    //       if(linkObject === "text"){
-    //         var link = saveOnlyLinkAddress(message[linkObject]);
-    //         return (new SlinkFactory(link));
-    //       }
-    //     }
-    //
-    //
-    //   }
-    //
-    //
-    //
-    // }
-    // function saveOnlyLinkAddress(linkText){
-    //       return linkText.match(/<.+>/)[0].slice(1,-1);
+    function removeLinkTags(link) {
+      return link.slice(1,-1);
+    };
 
+    function linkToSlinkObject(link) {
+      return (new SlinkFactory(link));
+    };
 
   }]);
