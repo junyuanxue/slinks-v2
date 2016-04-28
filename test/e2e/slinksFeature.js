@@ -30,7 +30,7 @@ describe('Slinks', function() {
             }
           ]
         }
-      };
+      }
     }
   }]);
 

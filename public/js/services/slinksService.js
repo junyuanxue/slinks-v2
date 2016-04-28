@@ -15,28 +15,28 @@ angular
     //
     function _getArrayOfSlinkObjects(allMessageData){
     	// console.log(response.data.messages.matches);
-      return allMessageData.data.messages.matches.map(extractMessagesFromMatchesIntoNestedArray);
+      return allMessageData.data.messages.matches.map(extractMessagesFromMatches);
         // .map(flattenArrays)
         //   .map(filterForLinks)
         //     .map(linkToSlinkObject);
     }
 
-    function extractMessagesFromMatchesIntoNestedArray(matchesObject) {
+    function extractMessagesFromMatches(matchesObject) {
       var nestedArray = [matchesObject.text];
-      KEY_ARRAY.forEach(getText);
-      // KEY_ARRAY.forEach(function(key){
-      //   if(matchesObject[key] !== undefined) {
-      //     nestedArray.push(matchesObject[key].text);
-      //   }
-      // });
-      console.log(nestedArray);
-      return nestedArray;
-
-      function getText(key, index) {
+      // KEY_ARRAY.forEach(getText);
+      KEY_ARRAY.forEach(function(key){
         if(matchesObject[key] !== undefined) {
           nestedArray.push(matchesObject[key].text);
         }
-      }
+      });
+      console.log(nestedArray);
+      return nestedArray;
+
+      // function getText(key, index) {
+      //   if(matchesObject[key] !== undefined) {
+      //     nestedArray.push(matchesObject[key].text);
+      //   }
+      // }
     }
 
 
