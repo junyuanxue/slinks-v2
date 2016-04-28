@@ -23,11 +23,7 @@ angular
         data: JSON.stringify({ url: slink.url })
       };
 
-      $http(req).then(function successCallback(response) {
-        console.log("working")
-      }, function errorCallback(response) {
-        console.log("failed")
-      });;
+      $http(req);
     }
 
   }]);
