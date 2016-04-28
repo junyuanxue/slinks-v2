@@ -5,12 +5,11 @@ exports.config = {
 
   onPrepare: function() {
       require('protractor-http-mock').config = {
-          rootDirectory: __dirname, // default value: process.cwd()
-          protractorConfig: 'protractor.conf.js' // default value: 'protractor-conf.js'
+          rootDirectory: __dirname,
+          protractorConfig: 'protractor.conf.js'
       };
 
       var SpecReporter = require('jasmine-spec-reporter');
-      // add jasmine spec reporter
       jasmine.getEnv().addReporter(new SpecReporter({displayStacktrace: 'all'}));
    }
 }
