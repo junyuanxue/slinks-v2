@@ -1,11 +1,25 @@
 module.exports = function(app) {
 
+  var express = require('express');
   var path = require('path');
   var request = require('request');
   var token = process.env.SLACK_API_TOKEN;
 
+  var models = require("../models/index");
+
+  var bodyParser = require('body-parser');
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: false }));
+
+
+
   app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../public', 'index.html'));
+  });
+
+  app.post('/slinks', function(req,res){
+    console.log(req.body);
+    models.Slink.findOrCreate({ where: { url: req.body.url }, defaults: { starred: false } }); 
   });
 
   app.get('/slinks', function(req, res) {
