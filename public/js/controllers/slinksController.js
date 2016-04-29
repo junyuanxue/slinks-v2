@@ -1,15 +1,20 @@
 angular
   .module('slinksApp')
-  .controller('SlinksController', ['$http', 'SlinksService', 'SlinkFactory', function($http, SlinksService, SlinkFactory) {
+  .controller('SlinksController', ['$http', 'SlinksService', 'SlinksDBService', 'SlinkFactory', function($http, SlinksService, SlinksDBService, SlinkFactory) {
     var self = this;
 
-    self.slinks = [new SlinkFactory('https://slack.com/'), new SlinkFactory('https://www.google.com/'), new SlinkFactory('https://www.twitter.com/')];
+    self.slinks = [];
+
+    SlinksDBService.getSlinksFromDB().then(function(slinks) {
+      console.log(slinks);
+      self.slinks = slinks;
+      console.log(self.slinks);
+    });
 
     SlinksService.getSlinks().then(function(slinks) {
-    	var slinks = Array.prototype.concat.apply([],slinks);
-      self.slinks = slinks;
-      _sendEachSlinkToDB(self.slinks);
-    })
+    	var slinks = Array.prototype.concat.apply([], slinks);
+      _sendEachSlinkToDB(slinks);
+    });
 
     function _sendEachSlinkToDB(slinks){
       slinks.forEach(_postToDB);
