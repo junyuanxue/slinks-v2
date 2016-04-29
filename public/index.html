@@ -18,10 +18,13 @@
   </head>
 
   <body>
-    <h1>Slinks</h1>
+    <nav>
+      <h1>Slinks</h1>
+    </nav>
     <div ng-controller="SlinksController as ctrl">
       <ul id="slinks" ng-repeat="slink in ctrl.slinks">
         <li>
+          <input type="checkbox">
           <a href="{{ slink.url }}">{{ slink.url }}</a>
         </li>
       </ul>
