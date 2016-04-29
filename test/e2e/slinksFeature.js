@@ -4,32 +4,15 @@ describe('Slinks', function() {
   beforeEach(function() {
     mock([{
       request: {
-        path: "/slinks",
+        path: "/api/slinks",
         method: 'GET'
       },
 
       response: {
-        data: {
-          messages: {
-            matches: [
-              {
-                text: "<https://slack.com/>",
-                previous: {
-                  text: "<http://expressjs.com/>"
-                },
-                previous_2: {
-                  text: "<https://mochajs.org/>"
-                },
-                next: {
-                  text: "This is not a link!"
-                },
-                next_2: {
-                  text: "<https://www.mongodb.org/>"
-                }
-              }
-            ]
-          }
-        }
+        data: [
+            { url: 'https://slack.com/', starred: false },
+            { url: 'https://www.mongodb.org/', starred: true }
+        ]
       }
     }
   ]);
@@ -48,7 +31,7 @@ describe('Slinks', function() {
     browser.get('/');
     var slinks = $$('#slinks li a');
 
-    expect(slinks.first().getText()).toEqual('https://slack.com/');
-    expect(slinks.last().getText()).toEqual('https://www.mongodb.org/');
+    expect(slinks.first().getText()).toEqual('https://www.mongodb.org/');
+    expect(slinks.last().getText()).toEqual('https://slack.com/');
   });
 });

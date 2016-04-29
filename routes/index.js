@@ -11,17 +11,21 @@ module.exports = function(app) {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
 
-
-
   app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../public', 'index.html'));
   });
 
+  app.get('/api/slinks', function(req, res) {
+    models.Slink.findAll().then(function(slinks) {
+      res.send(slinks);
+    });
+  });
+
   app.post('/slinks', function(req,res){
-    models.Slink.findOrCreate({ 
-      where: { url: req.body.url }, 
-      defaults: { starred: false } 
-    }); 
+    models.Slink.findOrCreate({
+      where: { url: req.body.url },
+      defaults: { starred: false }
+    });
   });
 
   app.get('/slinks', function(req, res) {
@@ -50,6 +54,4 @@ module.exports = function(app) {
       });
     });
   }
-
-
 };

@@ -1,47 +1,33 @@
 describe('slinksController', function() {
   beforeEach(module('slinksApp'));
 
-  var ctrl, SlinkFactory, httpBackend, SlinksService;
+  var ctrl, SlinkFactory, httpBackend, SlinksService, SlinksDBService;
 
-  var slinksData = {
-    messages: {
-      matches: [
-        {
-          text: "<https://slack.com/>",
-          previous: {
-            text: "<http://expressjs.com/>"
-          },
-          previous_2: {
-            text: "<https://mochajs.org/>"
-          },
-          next: {
-            text: "This is not a link!"
-          },
-          next_2: {
-            text: "<https://www.mongodb.org/>"
-          }
-        }
-      ]
-    }
-  };
+  var slinkDBData = [
+      { url: 'https://slack.com/', starred: false },
+      { url: 'http://expressjs.com', starred: true }
+  ];
 
-  beforeEach(inject(function($controller, _SlinkFactory_, $httpBackend, _SlinksService_) {
+  beforeEach(inject(function($controller, _SlinkFactory_, $httpBackend, _SlinksService_, _SlinksDBService_) {
     ctrl = $controller('SlinksController');
     SlinkFactory = _SlinkFactory_;
     httpBackend = $httpBackend;
     SlinksService = _SlinksService_;
-
-    httpBackend.expectGET("/slinks").respond(slinksData);
-    httpBackend.flush();
+    SlinksDBService = _SlinksDBService_;
   }));
 
+  it('fetches a list of links from slinks database', function() {
+    httpBackend.expectGET('/api/slinks').respond(slinkDBData);
+
+    var slink1 = { url: 'https://slack.com/', starred: false };
+    var slink2 = { url: 'http://expressjs.com', starred: true };
+
+    SlinksDBService.getSlinksFromDB().then(function(slinks) {
+      expect(ctrl.slinks).toEqual([slink2, slink1]);
+    });
+  });
+
   it('fetches a list of links from Slack API', function() {
-
-    var slink1 = new SlinkFactory("https://slack.com/");
-    var slink2 = new SlinkFactory("http://expressjs.com/");
-    var slink3 = new SlinkFactory("https://mochajs.org/");
-    var slink4 = new SlinkFactory("https://www.mongodb.org/");
-
-    expect(ctrl.slinks).toEqual([slink1, slink2, slink3, slink4]);
+    expect(SlinksService.getSlinksFromDB).toHaveBeenCalled;
   });
 });
