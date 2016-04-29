@@ -6,7 +6,6 @@ angular
 
     var KEY_ARRAY = ["previous", "previous_2", "next", "next_2"];
 
-
     self.getSlinks = function() {
       return $http.get('/slinks')
         .then(_getArrayOfSlinkObjects);
@@ -45,5 +44,4 @@ angular
     function linkToSlinkObject(link) {
       return (new SlinkFactory(link));
     }
-
   }]);

@@ -8,5 +8,4 @@ angular
         return response.data;
       });
     };
-
   }]);

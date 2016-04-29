@@ -45,8 +45,4 @@ describe('SlinksService', function() {
 
      httpBackend.flush();
    });
-
-
-
-
 });

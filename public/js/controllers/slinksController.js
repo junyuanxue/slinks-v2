@@ -6,9 +6,7 @@ angular
     self.slinks = [];
 
     SlinksDBService.getSlinksFromDB().then(function(slinks) {
-      console.log(slinks);
-      self.slinks = slinks;
-      console.log(self.slinks);
+      self.slinks = slinks.reverse();
     });
 
     SlinksService.getSlinks().then(function(slinks) {
@@ -30,5 +28,4 @@ angular
 
       $http(req);
     }
-
   }]);

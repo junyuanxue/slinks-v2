@@ -17,7 +17,7 @@ module.exports = function(app) {
 
   app.get('/api/slinks', function(req, res) {
     models.Slink.findAll().then(function(slinks) {
-      res.json(slinks);
+      res.send(slinks);
     });
   });
 
@@ -54,6 +54,4 @@ module.exports = function(app) {
       });
     });
   }
-
-
 };
