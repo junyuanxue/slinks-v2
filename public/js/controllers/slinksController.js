@@ -3,7 +3,7 @@ angular
   .controller('SlinksController', ['$http', 'SlinksService', 'SlinkFactory', function($http, SlinksService, SlinkFactory) {
     var self = this;
 
-    self.slinks = [new SlinkFactory('https://slack.com/')];
+    self.slinks = [new SlinkFactory('https://slack.com/'), new SlinkFactory('https://www.google.com/'), new SlinkFactory('https://www.twitter.com/')];
 
     SlinksService.getSlinks().then(function(slinks) {
     	var slinks = Array.prototype.concat.apply([],slinks);
@@ -27,4 +27,3 @@ angular
     }
 
   }]);
-

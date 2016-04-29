@@ -1,23 +1,51 @@
-html {
-  height: 100%;
-  width: 100%;
-}
-
 body {
-  background-color: #2E2E2E;
-  color: #fff;
+  background-color: rgb(250,250,250);
   font-family: 'Karla', sans-serif;
-  margin: 0 auto;
-  max-width: 1280px;
-  padding: 0;
+  min-width: 900px;
 }
 
-#practice-text {
-  color: yellow;
-  font-size: 30pt;
-  vertical-align: middle;
+nav {
+  width: 100%;
+  height: 70px;
+  background: white;
+  border-radius: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid #edeeee;
+  text-align: center;
+  font-weight: bold;
+  min-width: 900px;
+  padding: 5px 0 10px 0;
 }
 
-#heading {
-  
+h1 {
+  font-size: 35px;
+}
+
+#slinks {
+  position: relative;
+  top: 100px;
+  text-align: center;
+  left: 18%;
+}
+
+li {
+  list-style: none;
+  border: 1px dotted #B8B8B8 ;
+  border-radius: 6px;
+  height: 35px;
+  width: 60%;
+  padding-top: 10px;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: #585858;
 }
