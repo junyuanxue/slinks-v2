@@ -1,6 +1,6 @@
 angular
   .module('slinksApp')
-  .controller('SlinksController', ['$http', 'SlinksService', 'SlinksDBService', 'SlinkFactory', function($http, SlinksService, SlinksDBService, SlinkFactory) {
+  .controller('SlinksController', ['$http', 'SlinksAPIService', 'SlinksDBService', 'SlinkFactory', function($http, SlinksAPIService, SlinksDBService, SlinkFactory) {
     var self = this;
 
     self.slinks = [];
@@ -9,7 +9,7 @@ angular
       self.slinks = slinks.reverse();
     });
 
-    SlinksService.getSlinks().then(function(slinks) {
+    SlinksAPIService.getSlinks().then(function(slinks) {
     	var slinks = Array.prototype.concat.apply([], slinks);
       _sendEachSlinkToDB(slinks);
     });

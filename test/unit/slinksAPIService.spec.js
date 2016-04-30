@@ -1,7 +1,7 @@
-describe('SlinksService', function() {
+describe('SlinksAPIService', function() {
   beforeEach(module('slinksApp'));
 
-  var SlinksService, httpBackend;
+  var SlinksAPIService, httpBackend;
 
   var slinksData = {
     messages: {
@@ -25,9 +25,9 @@ describe('SlinksService', function() {
     }
   };
 
-  beforeEach(inject(function(_SlinksService_, _SlinkFactory_, $httpBackend) {
+  beforeEach(inject(function(_SlinksAPIService_, _SlinkFactory_, $httpBackend) {
     SlinkFactory = _SlinkFactory_;
-    SlinksService = _SlinksService_;
+    SlinksAPIService = _SlinksAPIService_;
     httpBackend = $httpBackend;
   }));
 
@@ -39,7 +39,7 @@ describe('SlinksService', function() {
      var slink3 = new SlinkFactory("https://mochajs.org/");
      var slink4 = new SlinkFactory("https://www.mongodb.org/");
 
-     SlinksService.getSlinks().then(function(slinks) {
+     SlinksAPIService.getSlinks().then(function(slinks) {
        expect(slinks).toEqual([slink1, slink2, slink3, slink4]);
      });
 

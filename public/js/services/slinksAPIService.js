@@ -1,6 +1,6 @@
 angular
   .module('slinksApp')
-  .service('SlinksService', ['$http', 'SlinkFactory', function($http, SlinkFactory) {
+  .service('SlinksAPIService', ['$http', 'SlinkFactory', function($http, SlinkFactory) {
 
     var self = this;
 

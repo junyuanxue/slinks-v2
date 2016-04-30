@@ -1,18 +1,18 @@
 describe('slinksController', function() {
   beforeEach(module('slinksApp'));
 
-  var ctrl, SlinkFactory, httpBackend, SlinksService, SlinksDBService;
+  var ctrl, SlinkFactory, httpBackend, SlinksAPIService, SlinksDBService;
 
   var slinkDBData = [
       { url: 'https://slack.com/', starred: false },
       { url: 'http://expressjs.com', starred: true }
   ];
 
-  beforeEach(inject(function($controller, _SlinkFactory_, $httpBackend, _SlinksService_, _SlinksDBService_) {
+  beforeEach(inject(function($controller, _SlinkFactory_, $httpBackend, _SlinksAPIService_, _SlinksDBService_) {
     ctrl = $controller('SlinksController');
     SlinkFactory = _SlinkFactory_;
     httpBackend = $httpBackend;
-    SlinksService = _SlinksService_;
+    SlinksAPIService = _SlinksAPIService_;
     SlinksDBService = _SlinksDBService_;
   }));
 
@@ -28,6 +28,6 @@ describe('slinksController', function() {
   });
 
   it('fetches a list of links from Slack API', function() {
-    expect(SlinksService.getSlinksFromDB).toHaveBeenCalled;
+    expect(SlinksAPIService.getSlinksFromDB).toHaveBeenCalled;
   });
 });
