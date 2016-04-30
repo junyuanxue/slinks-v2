@@ -31,7 +31,7 @@ describe('SlinksDBService', function() {
     var _then = jasmine.createSpy('_then');
     var slink = { id: 1 };
 
-    httpBackend.expectPUT('/slink/' + slink.id).respond(200);
+    httpBackend.expectPUT('/api/slink/' + slink.id).respond(200);
     SlinksDBService.starSlinkInDB(slink).then(_then);
     httpBackend.flush();
 

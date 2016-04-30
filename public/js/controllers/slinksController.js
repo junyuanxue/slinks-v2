@@ -9,7 +9,7 @@ angular
       self.slinks = slinks.reverse();
     });
 
-    SlinksAPIService.getSlinks().then(function(slinks) {
+    SlinksAPIService.getLinksFromSlack().then(function(slinks) {
     	var slinks = Array.prototype.concat.apply([], slinks);
 
       //TO BE MOVED TO SlinksDBService:
@@ -23,7 +23,7 @@ angular
     function _postToDB(slink){
       var req = {
         method: 'POST',
-        url: '/slinks',
+        url: '/api/slinks',
         headers: { 'Content-Type': 'application/json' },
         data: JSON.stringify({ url: slink.url })
       };

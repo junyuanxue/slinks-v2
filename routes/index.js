@@ -21,7 +21,7 @@ module.exports = function(app) {
     });
   });
 
-  app.post('/slinks', function(req,res){
+  app.post('/api/slinks', function(req,res){
     models.Slink.findOrCreate({
       where: { url: req.body.url },
       defaults: { starred: false }

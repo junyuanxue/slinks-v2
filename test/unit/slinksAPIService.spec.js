@@ -39,7 +39,7 @@ describe('SlinksAPIService', function() {
      var slink3 = new SlinkFactory("https://mochajs.org/");
      var slink4 = new SlinkFactory("https://www.mongodb.org/");
 
-     SlinksAPIService.getSlinks().then(function(slinks) {
+     SlinksAPIService.getLinksFromSlack().then(function(slinks) {
        expect(slinks).toEqual([slink1, slink2, slink3, slink4]);
      });
 

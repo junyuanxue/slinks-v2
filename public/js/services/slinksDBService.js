@@ -12,7 +12,7 @@ angular
     self.starSlinkInDB = function(slink) {
       var req = {
         method: 'PUT',
-        url: '/slink/' + slink.id,
+        url: '/api/slink/' + slink.id,
         headers: { 'Content-Type': 'application/json' },
         data: JSON.stringify({ id: slink.id, url: slink.url, starred: true })
       };
