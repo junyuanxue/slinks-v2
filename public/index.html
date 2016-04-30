@@ -20,13 +20,16 @@
     <nav>
       <h1>Slinks</h1>
     </nav>
-    <div ng-controller="SlinksController as ctrl">
-      <ul id="slinks" ng-repeat="slink in ctrl.slinks">
-        <li>
-          <input type="checkbox">
-          <a href="{{ slink.url }}">{{ slink.url }}</a>
-        </li>
-      </ul>
-    </div>
+    <article>
+      <input id="searchKeywords" type="text" placeholder="Search by keywords, e.g. node" ng-model="searchText">
+      <div ng-controller="SlinksController as ctrl">
+        <ul id="slinks" ng-repeat="slink in ctrl.slinks | filter:searchText">
+          <li>
+            <input type="checkbox">
+            <a href="{{ slink.url }}">{{ slink.url }}</a>
+          </li>
+        </ul>
+      </div>
+    </article>
   </body>
 </html>

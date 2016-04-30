@@ -3,7 +3,7 @@ angular
   .controller('SlinksController', ['$http', 'SlinksAPIService', 'SlinksDBService', 'SlinkFactory', function($http, SlinksAPIService, SlinksDBService, SlinkFactory) {
     var self = this;
 
-    self.slinks = [];
+    self.slinks = [new SlinkFactory("www.mongodb.com")];
 
     SlinksDBService.getSlinksFromDB().then(function(slinks) {
       self.slinks = slinks.reverse();

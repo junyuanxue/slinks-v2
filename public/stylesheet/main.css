@@ -1,7 +1,7 @@
 body {
   background-color: rgb(250,250,250);
   font-family: 'Karla', sans-serif;
-  min-width: 900px;
+  min-width: 1300px;
 }
 
 nav {
@@ -15,7 +15,7 @@ nav {
   border-bottom: 1px solid #edeeee;
   text-align: center;
   font-weight: bold;
-  min-width: 900px;
+  min-width: 1300px;
   padding: 5px 0 10px 0;
 }
 
@@ -25,9 +25,25 @@ h1 {
 
 #slinks {
   position: relative;
-  top: 100px;
+  top: 130px;
   text-align: center;
   left: 18%;
+}
+
+#searchKeywords {
+  position: relative;
+  top: 100px;
+  left: 40%;
+  width: 270px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  border-bottom: dotted 1px #585858;
+  outline: none;
+  font-size: 15px;
+  font-style: italic;
+  margin-right: 400px;
+  text-align: center;
 }
 
 li {
