@@ -20,12 +20,4 @@ module.exports = function SlinksCall() {
       });
     });
   }
-
-  // app.get('/slinks', function(req, res) {
-  //   _requestToSlack().then(function(slinksData) {
-  //     return res.send(slinksData);
-  //   }).catch(function(error) {
-  //     return res.send(error);
-  //   });
-  // });
 }

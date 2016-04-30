@@ -2,15 +2,13 @@ module.exports = function(app) {
 
   var express = require('express');
   var path = require('path');
-  var request = require('request');
   var SlinksCall = require('./slinksCall.js');
   var slinksCall = new SlinksCall();
-
-  var models = require("../models/index");
-
   var bodyParser = require('body-parser');
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
+
+  var models = require("../models/index");
 
   app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../public', 'index.html'));
@@ -22,12 +20,31 @@ module.exports = function(app) {
     });
   });
 
-  app.post('/api/slinks', function(req,res){
+  app.post('/api/slinks', function(req, res){
     models.Slink.findOrCreate({
       where: { url: req.body.url },
       defaults: { starred: false }
     });
   });
+
+  app.put('/slink/:id', function(req, res) {
+    console.log(req.params.id);
+    console.log(req.body);
+
+    models.Slink.find({
+      where: { id: req.params.id }
+    }).then(function(slink) {
+      if (slink) {
+        console.log(slink);
+
+
+        slink.updateAttributes({
+          url: req.body.url,
+          starred: req.body.starred
+        });
+      }
+    })
+  })
 
   app.get('/slinks', function(req, res) {
     slinksCall.requestToSlack().then(function(slinksData) {
