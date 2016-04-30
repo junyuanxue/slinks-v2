@@ -30,4 +30,12 @@ describe('slinksController', function() {
   it('fetches a list of links from Slack API', function() {
     expect(SlinksAPIService.getSlinksFromDB).toHaveBeenCalled;
   });
+
+  it('instructs to update a link as starred in the database', function() {
+    var slink = jasmine.createSpy('slink');
+    spyOn(SlinksDBService, 'starSlinkInDB').and.callThrough();
+    ctrl.starSlink(slink);
+    
+    expect(SlinksDBService.starSlinkInDB).toHaveBeenCalledWith(slink);
+  })
 });

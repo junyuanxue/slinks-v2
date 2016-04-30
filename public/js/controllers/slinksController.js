@@ -11,6 +11,8 @@ angular
 
     SlinksAPIService.getSlinks().then(function(slinks) {
     	var slinks = Array.prototype.concat.apply([], slinks);
+
+      //TO BE MOVED TO SlinksDBService:
       _sendEachSlinkToDB(slinks);
     });
 
@@ -27,5 +29,9 @@ angular
       };
 
       $http(req);
+    }
+
+    self.starSlink = function(slink) {
+      SlinksDBService.starSlinkInDB(slink);
     }
   }]);

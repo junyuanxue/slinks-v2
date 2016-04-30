@@ -23,14 +23,17 @@ h1 {
   font-size: 35px;
 }
 
-#slinks {
+article {
   position: relative;
-  top: 130px;
-  text-align: center;
-  left: 18%;
 }
 
-#searchKeywords {
+#all-links {
+  text-align: center;
+  /*left: 18%;
+  top: 130px;*/
+}
+
+#search-keywords {
   position: relative;
   top: 100px;
   left: 40%;

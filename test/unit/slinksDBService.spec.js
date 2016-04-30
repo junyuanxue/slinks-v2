@@ -26,4 +26,15 @@ describe('SlinksDBService', function() {
 
     httpBackend.flush();
   });
+
+  it('makes a PUT request to star a link in the database', function() {
+    var _then = jasmine.createSpy('_then');
+    var slink = { id: 1 };
+
+    httpBackend.expectPUT('/slink/' + slink.id).respond(200);
+    SlinksDBService.starSlinkInDB(slink).then(_then);
+    httpBackend.flush();
+
+    expect(_then).toHaveBeenCalled();
+  })
 });

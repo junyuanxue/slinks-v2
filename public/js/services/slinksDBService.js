@@ -8,4 +8,17 @@ angular
         return response.data;
       });
     };
+
+    self.starSlinkInDB = function(slink) {
+      var req = {
+        method: 'PUT',
+        url: '/slink/' + slink.id,
+        headers: { 'Content-Type': 'application/json' },
+        data: JSON.stringify({ id: slink.id, url: slink.url, starred: true })
+      };
+
+      return $http(req).then(function(success) {
+        return;
+      });
+    }
   }]);

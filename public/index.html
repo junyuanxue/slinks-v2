@@ -12,8 +12,8 @@
     <script type="text/javascript" src="js/services/slinksAPIService.js"></script>
     <script type="text/javascript" src="js/services/slinksDBService.js"></script>
 
-    <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type='text/css' href="stylesheet/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="stylesheet/main.css">
   </head>
 
   <body>
@@ -21,15 +21,25 @@
       <h1>Slinks</h1>
     </nav>
     <article>
-      <input id="searchKeywords" type="text" placeholder="Search by keywords, e.g. node" ng-model="searchText">
+      <input id="search-keywords" type="text" placeholder="Search by keywords, e.g. node" ng-model="searchText">
       <div ng-controller="SlinksController as ctrl">
-        <ul id="slinks" ng-repeat="slink in ctrl.slinks | filter:searchText">
+        <h2>Starred</h2>
+        <ul id="starred-slinks" ng-repeat="slink in ctrl.starredSlinks | filter:searchText">
           <li>
-            <input type="checkbox">
+            <a href="{{ slink.url }}">{{ slink.url }}</a>
+          </li>
+        </ul>
+
+        <h2>All links</h2>
+        <ul id="all-links" ng-repeat="slink in ctrl.slinks | filter:searchText">
+          <li>
+            <input class="star" type="checkbox" ng-click="starSlink(slink)">
             <a href="{{ slink.url }}">{{ slink.url }}</a>
           </li>
         </ul>
       </div>
+
+
     </article>
   </body>
 </html>
