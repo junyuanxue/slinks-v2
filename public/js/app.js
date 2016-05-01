@@ -1,1 +1,1 @@
-angular.module('slinksApp', ['angular-input-stars']);
+angular.module('slinksApp', []);
