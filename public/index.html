@@ -33,7 +33,7 @@
         <h2>All links</h2>
         <ul id="all-links" ng-repeat="slink in ctrl.slinks | filter:searchText">
           <li>
-            <input class="star" type="checkbox" ng-click="starSlink(slink)">
+            <input class="star" type="checkbox" ng-click="ctrl.starSlink(slink);">
             <a href="{{ slink.url }}">{{ slink.url }}</a>
           </li>
         </ul>

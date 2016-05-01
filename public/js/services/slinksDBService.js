@@ -17,8 +17,8 @@ angular
         data: JSON.stringify({ id: slink.id, url: slink.url, starred: true })
       };
 
-      return $http(req).then(function(success) {
+      return $http(req).then(function success(response) {
         return;
-      });
+      };
     }
   }]);

@@ -27,17 +27,11 @@ module.exports = function(app) {
     });
   });
 
-  app.put('/slink/:id', function(req, res) {
-    console.log(req.params.id);
-    console.log(req.body);
-
+  app.put('/api/slink/:id', function(req, res) {
     models.Slink.find({
       where: { id: req.params.id }
     }).then(function(slink) {
       if (slink) {
-        console.log(slink);
-
-
         slink.updateAttributes({
           url: req.body.url,
           starred: req.body.starred
