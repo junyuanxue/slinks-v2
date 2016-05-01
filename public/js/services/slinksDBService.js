@@ -19,6 +19,6 @@ angular
 
       return $http(req).then(function success(response) {
         return;
-      };
+      });
     }
   }]);
