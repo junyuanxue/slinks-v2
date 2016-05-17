@@ -11,3 +11,4 @@ This is a project built during the Makerthon week at Makers Academy. It is a web
 * Express JS
 * Sequelize
 * Postgres
+* Slack API
